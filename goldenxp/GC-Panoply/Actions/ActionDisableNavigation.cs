@@ -10,21 +10,21 @@
 	public class ActionDisableNavigation : IAction
 	{
 		public override bool InstantExecute(GameObject target, IAction[] actions, int index)
-        {
-	        if (PanoplyCore.scene != null) 
-	        {
-	        	PanoplyCore.scene.disableNavigation = true;
-	        	PanoplyController controller = PanoplyCore.scene.GetComponent<PanoplyController>();
-	        	if (controller)
-	        	{
-	        		controller.keyboardInput = false;
-	        		controller.passiveInput = false;
-	        	}
-	        	
-	        }
-		        
-		    return true;
-        }
+		{
+			if (PanoplyCore.scene != null) 
+			{
+				PanoplyCore.scene.disableNavigation = true;
+				PanoplyController controller = PanoplyCore.scene.GetComponent<PanoplyController>();
+				if (controller)
+				{
+					controller.keyboardInput = false;
+					controller.passiveInput = false;
+				}
+				
+			}
+				
+			return true;
+		}
 
 		#if UNITY_EDITOR
 		public static new string NAME = "Panoply/Disable Navigation";

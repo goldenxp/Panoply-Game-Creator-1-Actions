@@ -21,35 +21,35 @@
 		[Tooltip("Whether to transition to target instantly or not")]
 		public bool instant;
 		
-        public override bool InstantExecute(GameObject target, IAction[] actions, int index)
-        {
-	        if (PanoplyCore.scene == null) return true;
-	        
-	        switch (targetType)
-	        {
-	        case TargetType.First:
-	        	PanoplyCore.GoToFirstStep();
-		        break;
-	        case TargetType.Prev:
-	        	PanoplyCore.DecrementStep();
-		        break;
-	        case TargetType.Next:
-	        	PanoplyCore.IncrementStep();
-		        break;
-	        case TargetType.Last:
-		        PanoplyCore.GoToLastStep();
-		        break;
-	        case TargetType.Specific:
-		        PanoplyCore.SetTargetStep(step);
-		        break;
-	        }
-	        
-	        if (instant)
-	        	PanoplyCore.SetInterpolatedStep(PanoplyCore.targetStep);
-	        	
-	        return true;
-	        
-        }
+		public override bool InstantExecute(GameObject target, IAction[] actions, int index)
+		{
+			if (PanoplyCore.scene == null) return true;
+			
+			switch (targetType)
+			{
+			case TargetType.First:
+				PanoplyCore.GoToFirstStep();
+				break;
+			case TargetType.Prev:
+				PanoplyCore.DecrementStep();
+				break;
+			case TargetType.Next:
+				PanoplyCore.IncrementStep();
+				break;
+			case TargetType.Last:
+				PanoplyCore.GoToLastStep();
+				break;
+			case TargetType.Specific:
+				PanoplyCore.SetTargetStep(step);
+				break;
+			}
+			
+			if (instant)
+				PanoplyCore.SetInterpolatedStep(PanoplyCore.targetStep);
+				
+			return true;
+			
+		}
 
 		#if UNITY_EDITOR
 		public static new string NAME = "Panoply/Go To Step";
